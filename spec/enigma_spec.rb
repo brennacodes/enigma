@@ -1,5 +1,10 @@
 require './lib/helper'
 
+# $ ruby ./lib/encrypt.rb message.txt encrypted.txt
+# Created 'encrypted.txt' with the key 82648 and date 240818
+# $ ruby ./lib/decrypt.rb encrypted.txt decrypted.txt 82648 240818
+# Created 'decrypted.txt' with the key 82648 and date 240818
+
 RSpec.describe Enigma do
   let!(:enigma) {Enigma.new}
   let!(:message) {"hello world"}
@@ -69,9 +74,3 @@ end
 
 # encr = Enigma.new(encryptor
 # encr.encrypt("agrgs")
-
-# In class:
-# defi(encryptor)
-# def *encrypt*("args")
-#   @encryptor.something("args")
-# end
