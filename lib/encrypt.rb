@@ -1,19 +1,11 @@
  require 'helper'
  
- class Encrypt
-
-    def initialize(message, arguments)
-     @message = message
-     @key = arguments[0] || key_generator
-     @date = arguments[1] || todays_date
-     @start = encrypt_output(@message, @key, @date)    
-    end
-
+ class Encrypt < Crypt
     def encrypt_output(message, key, date)
     {
-      :encryption => @message,
+      :encryption => encrypt_message(@message),
       :key => @key,
       :date => @date
     }
-  end
+    end
 end

@@ -1,17 +1,9 @@
  require 'helper'
  
- class Decrypt
-
-    def initialize(message, *arguments)
-     @message = message
-     @key = arguments[0] || key_generator
-     @date = arguments[1] || todays_date
-     @start = decrypt_output(@message, @key, @date)    
-    end
-
+ class Decrypt < Crypt
     def decrypt_output(message, key, date)
     {
-      :decryption => @message,
+      :decryption => crypt_message(@text_input),
       :key => @key,
       :date => @date
     }
