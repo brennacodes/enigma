@@ -11,6 +11,9 @@ RSpec.describe 'Cryptable' do
         expect(Cryptable::DATE).to eq Date.today.strftime("%m%d%y")
     end
 
- 
+    it 'can return an alphabet array' do
+        expect(Cryptable::ALPHABET).to eq["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
+    end
+
   
 end
