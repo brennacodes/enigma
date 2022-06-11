@@ -41,4 +41,26 @@ module Cryptable
         @shift_array.map! {|shift| shift_hash(shift)}
     end
 
+    def self_assess
+        return @shift_array.first.values_at(@@cryption) if __callee__ == encrypt
+        return @shift_array.first.key(@@cryption) if __callee__ == decrypt
+    end
+
+    def cryptionize(input_chunks)
+        output = []
+        input_chunks.each do |chunk|
+          chunk.each do |letter|
+              @@cryption = letter
+              output.push(self_assess)
+              @shift_array.rotate!
+          end
+        end
+        output.join('')
+    end    
+
+    def crypt_message(input, key, date)
+        input_array = input.chars
+        chunks = input_array.each_slice(4)
+        cryptionize(chunks)
+    end
 end

@@ -152,7 +152,8 @@ RSpec.describe 'Cryptable' do
            "w"=>"r",
            "x"=>"s",
            "y"=>"t",
-         "z"=>"u"}])
+           "z"=>"u"
+        }])
     end
 
 end
