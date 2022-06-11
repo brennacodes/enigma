@@ -15,5 +15,7 @@ RSpec.describe 'Cryptable' do
         expect(Cryptable::ALPHABET).to eq(["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])
     end
 
-  
+    it 'can can get offsets from date' do
+        expect(enigma.offsets).to eq([4, 8, 9, 3])
+    end
 end
