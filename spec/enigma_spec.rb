@@ -52,7 +52,6 @@ RSpec.describe Enigma do
   xit "can crack an encrypted message" do
     evaluate = Enigma.new("hello world end", "08304", "291018").encrypt
     to_crack = evaluate[:encryption]
-    require "pry"; binding.pry
     expect(Enigma.new(to_crack).crack(message)).to eq({
           :decryption => "hello world end",
           :key => "02715",
