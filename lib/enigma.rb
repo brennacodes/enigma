@@ -23,14 +23,16 @@ class Enigma
     end
 
     def encrypt(message)
-        crypt_message(message)
-        encrypt_output
+        crypt_message(message, 'encrypt')
+        # encrypt_output
     end
 
     def encrypt_output
-        encryption = Hash.new(encryption: @message, key: @key, date: @date)
-        File.new(@output_to_file, "w").write(@message)
-        puts "Created #{@output_to_file} with the key 82648 and date 240818"
+        encryption = {encryption: @message, key: @key, date: @date}
+        File.open(@output_to_file, "w") do |file|
+            file.write(encryption)
+        end
+        output_message
     end
     
 end
