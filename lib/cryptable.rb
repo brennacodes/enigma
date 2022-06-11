@@ -12,10 +12,6 @@ module Cryptable
     end
 
     def shifter
-        @@key == Integer ? get_integer_shifter : get_string_shifter
-    end
-
-    def get_string_shifter
         key_array = @@key.chars.map! {|value| [value, @@key[@@key.index(value) + 1]]}
         clean_array = key_array.take_while {|idx| key_array.index(idx) < 4}
         clean_array.map! {|pair| pair.join('').to_i}
