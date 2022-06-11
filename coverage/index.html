@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2022-06-10T20:39:35-06:00">2022-06-10T20:39:35-06:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2022-06-10T20:40:39-06:00">2022-06-10T20:40:39-06:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -23,14 +23,14 @@
     <span class="group_name">All Files</span>
     (<span class="covered_percent">
       <span class="red">
-  76.19%
+  77.27%
 </span>
 
      </span>
      covered at
      <span class="covered_strength">
        <span class="red">
-         0.93
+         0.95
        </span>
     </span> hits/line
     )
@@ -43,11 +43,11 @@
   </div>
 
   <div class="t-line-summary">
-    <b>42</b> relevant lines,
-    <span class="green"><b>32</b> lines covered</span> and
+    <b>44</b> relevant lines,
+    <span class="green"><b>34</b> lines covered</span> and
     <span class="red"><b>10</b> lines missed. </span>
     (<span class="red">
-  76.19%
+  77.27%
 </span>
 )
   </div>
@@ -73,11 +73,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#17496bd5ef74514e2dbb12563048a3ae21f783ea" class="src_link" title="lib/cryptable.rb">lib/cryptable.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
+            <td class="cell--number">9</td>
             <td class="cell--number">5</td>
-            <td class="cell--number">3</td>
-            <td class="cell--number">3</td>
+            <td class="cell--number">5</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.00</td>
+            <td class="cell--number">1.20</td>
             
           </tr>
         
@@ -156,8 +156,8 @@
     
 
     <div class="t-line-summary">
-      <b>3</b> relevant lines.
-      <span class="green"><b>3</b> lines covered</span> and
+      <b>5</b> relevant lines.
+      <span class="green"><b>5</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -214,6 +214,50 @@
       
         <div>
           <li class="never" data-hits="" data-linenumber="5">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="1" data-linenumber="6">
+            <span class="hits">1</span>
+            
+
+            
+
+            <code class="ruby">    def offsets</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="covered" data-hits="2" data-linenumber="7">
+            <span class="hits">2</span>
+            
+
+            
+
+            <code class="ruby">        (DATE.to_i ** 2).digits.reverse.last(4)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="8">
+            
+            
+
+            
+
+            <code class="ruby">    end</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="9">
             
             
 
@@ -631,7 +675,7 @@
 
             
 
-            <code class="ruby">    it &#39;can can get offsets from date&#39; do</code>
+            <code class="ruby">    it &#39;can get offsets from date&#39; do</code>
           </li>
         </div>
       
@@ -642,7 +686,7 @@
 
             
 
-            <code class="ruby">        expect(enigma.offsets).to eq([4, 8, 9, 3])</code>
+            <code class="ruby">        expect(enigma.offsets).to eq([4, 4, 8, 4])</code>
           </li>
         </div>
       
