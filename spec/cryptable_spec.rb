@@ -2,9 +2,14 @@ require_relative 'spec_helper'
 
 RSpec.describe 'Cryptable' do
     let!(:enigma) {Enigma.new("hello world", "12345", "040895")}
+    let!(:enigma_2) {Enigma.new("hello world")}
 
     it 'exists' do
         expect(enigma).to be_instance_of Enigma
+    end
+
+    it 'exists without arguments' do
+        expect(enigma_2).to be_instance_of Enigma
     end
 
     it 'can return todays date' do
