@@ -20,9 +20,14 @@ RSpec.describe 'Cryptable' do
     end
 
     it 'can return a random array of 4 numbers between 0 and 9' do
-        random_value = Kernel.rand
-        allow(enigma).to receive(:sampler).and_return(random_value)
+        random_value = (Kernel.rand * 10).round
+        array = Array.new(4) {random_value}
+        allow(enigma).to receive(:sampler).and_return(array)
     end
 
-    
+    it 'can generate a key from the sampler method' do 
+        random_value = (Kernel.rand * 10).round
+        array = Array.new(4) {random_value}
+        allow(enigma).to receive(:generate_key).and_return(array.join('').to_i)
+    end
 end

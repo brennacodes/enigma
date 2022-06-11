@@ -11,4 +11,8 @@ module Cryptable
         (0..9).to_a.sample(4)
         # Array.new(4) {rand(0..9)}
     end
+
+    def generate_key
+        sampler.unshift(0).join('').to_i
+    end
 end
