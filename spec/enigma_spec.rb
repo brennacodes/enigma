@@ -7,21 +7,20 @@ require 'Cryptable'
 # Created 'decrypted.txt' with the key 82648 and date 240818
 
 RSpec.describe Enigma do
-  include Cryptable
-  let!(:enigma) {Enigma.new("hello world", "12345", "120818")}
-  let!(:enigma_2) {Enigma.new("hello! world?")}
+  let!(:enigma) {Enigma.new("hello world", "02715", '040895')}
+  let!(:enigma_2) {Enigma.new("hello! world?", "02715", "040895")}
 
   it "is an instance of" do
     expect(enigma).to be_instance_of Enigma
   end
 
-  xit "can encrypt a message" do
-    expect(enigma.encrypt(message, "02715", '040895')).to eq(    {
+  it "can encrypt a message" do
+    expect(enigma.encrypt).to eq(    {
           :encryption => "keder ohulw",
           :key => "02715",
           :date => "040895"
         })
-    expect(enigma_2.encrypt(message, "02715", '040895')).to eq(    {
+    expect(enigma_2.encrypt).to eq(    {
           :encryption => "keder! ohulw?",
           :key => "02715",
           :date => "040895"

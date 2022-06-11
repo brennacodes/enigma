@@ -4,18 +4,30 @@ require 'cryptable'
 class Enigma
     include Cryptable
 
-    GET_DATE = Date.today.strftime('%m%d%y')
-    ALPHABET = ('a'..'z').to_a << " "
-    SPECIAL_CHARS = !ALPHABET.any?
+    # GET_DATE = Date.today.strftime('%m%d%y')
+    # ALPHABET = ('a'..'z').to_a << " "
+    # SPECIAL_CHARS = !ALPHABET.any?
     
     attr_reader :message, :key, :date
     attr_accessor :shift_array
     
-    def initialize(message, *arguments)
+    def initialize(message, output_file, *arguments)
         @message = message
-        @key = arguments[0] || generate_key
-        @date = arguments[1] || GET_DATE
+        @output_file = output_file
+        @key = arguments[1] || generate_key
+        @date = arguments[2] || DATE
         @shift_array = []
     end
 
+    def encrypt(hash)
+        crypt_message(message, @key, @date)
+        encrypt_output
+    end
+
+    def encrypt_output
+        encryption = Hash.new(encryption: encrypt_message, key: @key, date: @date)
+        File.new(@output_file).write(encryption)
+        puts {}
+        output_message(encryption[], @key, @date)
+    
 end
