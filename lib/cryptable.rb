@@ -51,9 +51,10 @@ module Cryptable
         output = []
         input_chunks.each do |chunk|
           chunk.each do |letter|
-              @@cryption = letter
-              output.push(self_assess)
-              @shift_array.rotate!
+            next if letter == SPECIAL_CHARS
+            @@cryption = letter
+            output.push(self_assess)
+            @shift_array.rotate!
           end
         end
         output.join('')
