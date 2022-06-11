@@ -51,7 +51,6 @@ module Cryptable
           end
         end
         @message = output.join('')
-        require 'pry'; binding.pry
     end    
 
     def crypt_message(input, how)

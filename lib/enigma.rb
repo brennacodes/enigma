@@ -24,7 +24,6 @@ class Enigma
 
     def encrypt(message)
         crypt_message(message, 'encrypt')
-        # encrypt_output
     end
 
     def encrypt_output
@@ -34,5 +33,4 @@ class Enigma
         end
         output_message
     end
-    
 end
