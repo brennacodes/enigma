@@ -1,12 +1,8 @@
 module Cryptable
-    # DATE = Date.today.strftime('%m%d%y')
-    # ALPHABET = ('a'..'z').to_a << " "
-    # SPECIAL_CHARS = !ALPHABET.any?
-    
     @@cryption = 'input'
 
     def offsets
-        (Enigma::DATE.to_i ** 2).digits.reverse.last(4)
+        (@date.to_i ** 2).digits.reverse.last(4)
     end
 
     def generate_key
@@ -41,31 +37,31 @@ module Cryptable
         @shift_array.map! {|shift| shift_hash(shift)}
     end
 
-    def self_assess
-        return @shift_array.first.values_at(@@cryption) if __callee__ == :encrypt
-        return @shift_array.first.key(@@cryption) if __callee__ == :decrypt
-    end
-
-    def cryptionize(input_chunks)
+    def cryptionize(input_chunks, how)
         output = []
         input_chunks.each do |chunk|
           chunk.each do |letter|
-            next if letter == Enigma::SPECIAL_CHARS
+            if letter == Enigma::SPECIAL_CHARS
+                next letter
+            end
             @@cryption = letter
-            output.push(self_assess)
+            how == 'encrypt' ? output.push(@shift_array.first.key(@@cryption)) : next
+            how == 'decrypt' ? output.push(@shift_array.first.values_at(@@cryption)) : next
             @shift_array.rotate!
           end
         end
-        output.join('')
+        @message = output.join('')
+        require 'pry'; binding.pry
     end    
 
-    def crypt_message(input)
+    def crypt_message(input, how)
         input_array = input.chars
         chunks = input_array.each_slice(4)
-        cryptionize(chunks)
+        letter_indices
+        cryptionize(chunks, how)
     end
 
-    def output_message(file, key, date)
-        puts "Created #{file} with the key #{key} and date #{date}"
+    def output_message
+        puts "Created #{@output_to_file} with the key #{@key} and date #{@date}"
     end
 end

@@ -12,8 +12,8 @@ File.open(input_from_file, 'r') do |file|
     enigma.message = file.read
 end
 
-encrypt_hash = {encryption: enigma.message, key: enigma.key, date: enigma.date}
+# encrypt_hash = {encryption: enigma.message, key: enigma.key, date: enigma.date}
 # puts encrypt_hash
 # puts "#{encrypt_hash[:encryption]}"
-enigma.encrypt(encrypt_hash[:encryption])
+enigma.encrypt(enigma.message)
 enigma.encrypt_output
