@@ -30,7 +30,7 @@ class Enigma
     def encrypt_output
         encryption = Hash.new(encryption: @message, key: @key, date: @date)
         File.new(@output_to_file, "w").write(@message)
-        puts "Created #{@output_to_file} with the key 82648 and date 240818"
+        puts "Created #{@output_to_file} with the key #{@key} and date #{@date}"
     end
     
 end
