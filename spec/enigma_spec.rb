@@ -1,4 +1,5 @@
 require './lib/helper'
+require 'Cryptable'
 
 # $ ruby ./lib/encrypt.rb message.txt encrypted.txt
 # Created 'encrypted.txt' with the key 82648 and date 240818
@@ -6,7 +7,9 @@ require './lib/helper'
 # Created 'decrypted.txt' with the key 82648 and date 240818
 
 RSpec.describe Enigma do
+  include Cryptable
   let!(:enigma) {Enigma.new("hello world", "12345", "120818")}
+  let!(:enigma_2) {Enigma.new("hello! world?")}
 
   it "is an instance of" do
     expect(enigma).to be_instance_of Enigma
@@ -15,6 +18,11 @@ RSpec.describe Enigma do
   xit "can encrypt a message" do
     expect(enigma.encrypt(message, "02715", '040895')).to eq(    {
           :encryption => "keder ohulw",
+          :key => "02715",
+          :date => "040895"
+        })
+    expect(enigma_2.encrypt(message, "02715", '040895')).to eq(    {
+          :encryption => "keder! ohulw?",
           :key => "02715",
           :date => "040895"
         })

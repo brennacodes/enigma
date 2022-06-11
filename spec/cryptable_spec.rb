@@ -2,7 +2,7 @@ require_relative 'spec_helper'
 
 RSpec.describe 'Cryptable' do
     let!(:enigma) {Enigma.new("hello world", "12345", "040895")}
-    let!(:enigma_2) {Enigma.new("hello world")}
+    let!(:enigma_2) {Enigma.new("hello! world!")}
 
     it 'exists' do
         expect(enigma).to be_instance_of Enigma
@@ -21,7 +21,7 @@ RSpec.describe 'Cryptable' do
     end
 
     it 'can get offsets from date' do
-        expect(enigma.offsets).to eq([4, 4, 8, 4])
+        expect(enigma.offsets).to eq([8, 8, 8, 4])
     end
 
     it 'can return a key srting of 5 numbers between 0 and 9' do
@@ -37,73 +37,75 @@ RSpec.describe 'Cryptable' do
     end
 
     it 'can get key from index value' do
+        expect(enigma.get_key(0)).to eq(12)
 
     end
 
     it 'can get offset from index value' do
+        expect(enigma.get_offset(0)).to eq(8)
 
     end
 
     it 'can get shift from key and offsets' do
-
+        expect(enigma.get_shift(0)).to eq(20)
     end
 
     it 'can generate a shift hash from shift' do
-        expect(enigma.letter_indices).to eq([{
-            " "=>"p",
-            "a"=>"q",
-            "b"=>"r",
-            "c"=>"s",
-            "d"=>"t",
-            "e"=>"u",
-            "f"=>"v",
-            "g"=>"w",
-            "h"=>"x",
-            "i"=>"y",
-            "j"=>"z",
-            "k"=>" ",
-            "l"=>"a",
-            "m"=>"b",
-            "n"=>"c",
-            "o"=>"d",
-            "p"=>"e",
-            "q"=>"f",
-            "r"=>"g",
-            "s"=>"h",
-            "t"=>"i",
-            "u"=>"j",
-            "v"=>"k",
-            "w"=>"l",
-            "x"=>"m",
-            "y"=>"n",
-            "z"=>"o"},
-            {" "=>" ",
-            "a"=>"a",
-            "b"=>"b",
-            "c"=>"c",
-            "d"=>"d",
-            "e"=>"e",
-            "f"=>"f",
-            "g"=>"g",
-            "h"=>"h",
-            "i"=>"i",
-            "j"=>"j",
-           "k"=>"k",
-           "l"=>"l",
-           "m"=>"m",
-           "n"=>"n",
-           "o"=>"o",
-           "p"=>"p",
-           "q"=>"q",
-           "r"=>"r",
-           "s"=>"s",
-           "t"=>"t",
-           "u"=>"u",
-           "v"=>"v",
-           "w"=>"w",
-           "x"=>"x",
-           "y"=>"y",
-           "z"=>"z"},
+        expect(enigma.letter_indices).to eq(
+           [{" "=>"t",
+           "a"=>"u",
+           "b"=>"v",
+           "c"=>"w",
+           "d"=>"x",
+           "e"=>"y",
+           "f"=>"z",
+           "g"=>" ",
+           "h"=>"a",
+           "i"=>"b",
+           "j"=>"c",
+           "k"=>"d",
+           "l"=>"e",
+           "m"=>"f",
+           "n"=>"g",
+           "o"=>"h",
+           "p"=>"i",
+           "q"=>"j",
+           "r"=>"k",
+           "s"=>"l",
+           "t"=>"m",
+           "u"=>"n",
+           "v"=>"o",
+           "w"=>"p",
+           "x"=>"q",
+           "y"=>"r",
+           "z"=>"s"},
+          {" "=>"d",
+           "a"=>"e",
+           "b"=>"f",
+           "c"=>"g",
+           "d"=>"h",
+           "e"=>"i",
+           "f"=>"j",
+           "g"=>"k",
+           "h"=>"l",
+           "i"=>"m",
+           "j"=>"n",
+           "k"=>"o",
+           "l"=>"p",
+           "m"=>"q",
+           "n"=>"r",
+           "o"=>"s",
+           "p"=>"t",
+           "q"=>"u",
+           "r"=>"v",
+           "s"=>"w",
+           "t"=>"x",
+           "u"=>"y",
+           "v"=>"z",
+           "w"=>" ",
+           "x"=>"a",
+           "y"=>"b",
+           "z"=>"c"},
           {" "=>"o",
            "a"=>"p",
            "b"=>"q",
@@ -157,8 +159,8 @@ RSpec.describe 'Cryptable' do
            "w"=>"r",
            "x"=>"s",
            "y"=>"t",
-           "z"=>"u"
-        }])
+           "z"=>"u"}]
+        )
     end
 
 end
