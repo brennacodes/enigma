@@ -31,4 +31,20 @@ RSpec.describe 'Cryptable' do
         allow(enigma).to receive(:shifter).and_return(array)
     end
 
+    it 'can get key from index value' do
+
+    end
+
+    it 'can get offset from index value' do
+
+    end
+
+    it 'can get shift from key and offsets' do
+
+    end
+
+    it 'can generate a shift hash from shift' do
+        expect(enigma.letter_indices).to eq(['a', 'b', 'c'])
+    end
+
 end
