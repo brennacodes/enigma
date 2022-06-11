@@ -17,7 +17,6 @@ module Cryptable
         key_array = @key.chars.map! {|value| [value, @key[@key.index(value) + 1]]}
         clean_array = key_array.take_while {|idx| key_array.index(idx) < 4}
         clean_array.map! {|pair| pair.join('').to_i}
-        # letter_indices
     end
     
     def get_key(index)
@@ -64,5 +63,9 @@ module Cryptable
         input_array = input.chars
         chunks = input_array.each_slice(4)
         cryptionize(chunks)
+    end
+
+    def output_message(file, key, date)
+        puts "Created #{file} with the key #{key} and date #{date}"
     end
 end
