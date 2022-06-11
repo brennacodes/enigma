@@ -16,7 +16,7 @@ module Cryptable
         key_array = @key.chars.map! {|value| [value, @key[@key.index(value) + 1]]}
         clean_array = key_array.take_while {|idx| key_array.index(idx) < 4}
         clean_array.map! {|pair| pair.join('').to_i}
-        letter_indices
+        # letter_indices
     end
     
     def get_key(index)
@@ -32,12 +32,13 @@ module Cryptable
     end
     
     def shift_hash(index)
-        ALPHABET.zip(ALPHABET.rotate(get_shift)).to_h
+        ALPHABET.zip(ALPHABET.rotate(index)).to_h
     end
 
     def letter_indices
         letter_array = ('A'..'D').to_a
-        letter_array.each_index {|index| @shift_array << shift_hash(get_shift(index))}
+        letter_array.each_index {|index| @shift_array << get_shift(index)}
+        @shift_array.map! {|shift| shift_hash(shift)}
     end
 
 end
