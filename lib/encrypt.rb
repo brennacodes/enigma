@@ -1,14 +1,16 @@
 require 'helper'
 
 
+input_from_file = ARGV[0]
+@message = ''
+ouput_to_file = ARGV[1]
+return key = ARGV[2] if !ARGV[2].nil?
+return date = ARGV[3] if !ARGV[3].nil?
 
-File.open(ARGV[0], 'r') do |file|
-   input_text = file.read
-   ouput_file = ARGV[1]
-   ARGV[2].exists? ? key = ARGV[2] : next
-   ARGV[3].exists? ? date = ARGV[3] : next 
-   enigma = Enigma.new(input_text, output_file, key = :itself, date = :itself)
-   enigma.encrypt
-   enigma.encrypt_output
-#    enigma.public_send :encrypt, input_text, output_file, key, date
+File.open(input_from_file, 'r') do |file|
+    @message = input_from_file.read
 end
+
+enigma = Enigma.new(message, output_to_file, key = :itself, date = :itself)
+enigma.encrypt
+enigma.encrypt_output

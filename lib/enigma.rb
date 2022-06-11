@@ -19,13 +19,14 @@ class Enigma
         @shift_array = []
     end
 
-    def encrypt
+    def encrypt(hash)
         crypt_message(message, @key, @date)
         encrypt_output
     end
 
     def encrypt_output
         encryption = Hash.new(encryption: encrypt_message, key: @key, date: @date)
+        File.new(@output_file).write(encryption)
         puts {}
         output_message(encryption[], @key, @date)
     
