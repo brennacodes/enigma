@@ -15,4 +15,10 @@ module Cryptable
     def generate_key
         sampler.unshift(0).join('').to_i
     end
+
+    def shifter
+        key_array = @@key.chars.map! {|value| [value, @@key[@@key.index(value) + 1]]}
+        clean_array = key_array.take_while {|idx| key_array.index(idx) < 4}
+        clean_array.map! {|pair| pair.join('').to_i}
+    end
 end
