@@ -1,12 +1,12 @@
 module Cryptable
-    DATE = Date.today.strftime('%m%d%y')
-    ALPHABET = ('a'..'z').to_a << " "
-    SPECIAL_CHARS = !ALPHABET.any?
+    # DATE = Date.today.strftime('%m%d%y')
+    # ALPHABET = ('a'..'z').to_a << " "
+    # SPECIAL_CHARS = !ALPHABET.any?
     
     @@cryption = 'input'
 
     def offsets
-        (DATE.to_i ** 2).digits.reverse.last(4)
+        (Enigma::DATE.to_i ** 2).digits.reverse.last(4)
     end
 
     def generate_key
@@ -32,7 +32,7 @@ module Cryptable
     end
     
     def shift_hash(index)
-        ALPHABET.zip(ALPHABET.rotate(index)).to_h
+        Enigma::ALPHABET.zip(Enigma::ALPHABET.rotate(index)).to_h
     end
 
     def letter_indices
@@ -42,15 +42,15 @@ module Cryptable
     end
 
     def self_assess
-        return @shift_array.first.values_at(@@cryption) if __callee__ == encrypt
-        return @shift_array.first.key(@@cryption) if __callee__ == decrypt
+        return @shift_array.first.values_at(@@cryption) if __callee__ == :encrypt
+        return @shift_array.first.key(@@cryption) if __callee__ == :decrypt
     end
 
     def cryptionize(input_chunks)
         output = []
         input_chunks.each do |chunk|
           chunk.each do |letter|
-            next if letter == SPECIAL_CHARS
+            next if letter == Enigma::SPECIAL_CHARS
             @@cryption = letter
             output.push(self_assess)
             @shift_array.rotate!
@@ -59,7 +59,7 @@ module Cryptable
         output.join('')
     end    
 
-    def crypt_message(input, key, date)
+    def crypt_message(input)
         input_array = input.chars
         chunks = input_array.each_slice(4)
         cryptionize(chunks)
