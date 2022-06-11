@@ -30,4 +30,11 @@ RSpec.describe 'Cryptable' do
         array = Array.new(4) {random_value}
         allow(enigma).to receive(:generate_key).and_return(array.join('').to_i)
     end
+
+    it 'can generate a shifter array from key' do
+        key = (Kernel.rand * 10).round
+        array = Array.new(4) {key}
+        allow(enigma).to receive(:shifter).and_return(array)
+    end
+    
 end
