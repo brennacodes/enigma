@@ -1,7 +1,7 @@
 require_relative 'spec_helper'
 
 RSpec.describe 'Cryptable' do
-    let!(:enigma) {Enigma.new}
+    let!(:enigma) {Enigma.new("hello world", "12345", "040895")}
 
     it 'exists' do
         expect(enigma).to be_instance_of Enigma

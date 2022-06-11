@@ -6,9 +6,7 @@ require './lib/helper'
 # Created 'decrypted.txt' with the key 82648 and date 240818
 
 RSpec.describe Enigma do
-  let!(:enigma) {Enigma.new}
-  let!(:message) {"hello world"}
-  let!(:ciphertext) {"keder ohulw"}
+  let!(:enigma) {Enigma.new("hello world", "12345", "120818")}
 
   it "is an instance of" do
     expect(enigma).to be_instance_of Enigma

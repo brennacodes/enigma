@@ -36,7 +36,6 @@ module Cryptable
     end
 
     def letter_indices
-        require 'pry'; binding.pry
         letter_array = ('A'..'D').to_a
         letter_array.each_index {|index| @shift_array << shift_hash(get_shift(index))}
     end
