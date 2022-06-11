@@ -19,10 +19,10 @@ RSpec.describe 'Cryptable' do
         expect(enigma.offsets).to eq([4, 4, 8, 4])
     end
 
-    it 'can return a random array of 4 numbers between 0 and 9' do
-        random_value = (Kernel.rand * 10).round
-        array = Array.new(4) {random_value}
-        allow(enigma).to receive(:sampler).and_return(array)
+    it 'can return a random string of 5 numbers between 0 and 9' do
+        random_value = (Kernel.rand * 1).round
+        key = (Array.new(5) {random_value}).join('')
+        allow(enigma).to receive(:generate_key).and_return(key)
     end
 
     it 'can generate a key from the sampler method' do 
@@ -36,5 +36,5 @@ RSpec.describe 'Cryptable' do
         array = Array.new(4) {key}
         allow(enigma).to receive(:shifter).and_return(array)
     end
-    
+
 end
