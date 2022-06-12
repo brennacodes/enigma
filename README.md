@@ -37,7 +37,7 @@ The version here was created in Ruby for Turing School's back-end engineering Mo
 
     `ruby ./lib/decrypt.rb encrypt.txt decrypted.txt`  
       
-> If you want to use a specific decryption key and date, type the at the end of the command above (the format should be similar to the encryption command with key and date arguments)  
+> If you want to use a specific decryption key and date, type them at the end of the command above *(the format should be similar to the encryption command with key and date arguments)*  
     
 > The encrypted or decrypted message can be found in the corresponding text file  
   
