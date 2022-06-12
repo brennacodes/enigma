@@ -28,6 +28,10 @@ The version here was created in Ruby for Turing School's back-end engineering Mo
 
     `ruby ./lib/encrypt.rb message.txt encrypted.txt 12345 123122`  
         
+> Your encrypted message can be found inside of the text folder at the file path below:
+
+    `enigma/text/encrypted.txt`  
+        
 > To decrypt the message, type the command below into  your terminal:
 
     `ruby ./lib/decrypt.rb encrypt.txt decrypted.txt`  
