@@ -41,7 +41,7 @@ The version here was created in Ruby for Turing School's back-end engineering Mo
     
 > The encrypted or decrypted message can be found in the corresponding text file  
   
-> Don't for get to save the **key** and **date** values that are returned in your terminal, as this is required to decrypt/encrypt the message
+> In additon to your encrypted or decrypted message, your **key** and **date** values are returned both in your terminal, as well as in corresponding text files inside of the `text` file folder
    
      
      
