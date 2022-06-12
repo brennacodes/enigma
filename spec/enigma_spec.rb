@@ -4,8 +4,6 @@ require './lib/cryptable'
 RSpec.describe 'Enigma' do
   let!(:enigma) {Enigma.new("hello world")}
   let!(:enigma_2) {Enigma.new("hello! world?")}
-  let!(:input_file) {'encrypted.txt'}
-  let!(:output_file) {'decrypted.txt'}
 
   it "is an instance of" do
     expect(enigma).to be_instance_of Enigma
@@ -87,15 +85,3 @@ end
   #     :date => "060622"
   #   })
   # end
-
-# STUB:
-# allow(enigma).to receive(:).and_return()
-
-# MOCK: verifies behavior, checks that a method does the right thing without controlling output
-# "given a valid encryptor with the method encrypt that takes an argument
-# encryptor = double("encryptor")
-# Set up an expectation that the method will be called with arguments:
-# expect(encryptor).to receive(:encrypt).with("args")
-
-# encr = Enigma.new(encryptor
-# encr.encrypt("agrgs")

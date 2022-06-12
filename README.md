@@ -47,9 +47,9 @@ The version here was created in Ruby for Turing School's back-end engineering Mo
 > A `cryptable` module to house the `encrypt` and `decrypt` behavior has been implemented. Specific `encrypt` and `decrypt` methods were left in the `Enigma` class to follow the interaction pattern provided, as well as to help the logic flow.
 ## Ruby Conventions and Mechanics: 4
 > Code is neat, properly indented, and variable names are easy to understand. 100% of methods are under 10 lines of code, with 99% being under 7 lines. Enumerables used are best choice for each application.
-## Test Driven Development: __
-> Tests follow interaction pattern and most tests were written before methods. Methods were written utilizing tests, pry, and test coverage metrics are above __%.
+## Test Driven Development: 3
+> Tests follow interaction pattern and most tests were written before methods. Methods were written and refined utilizing pry, and test coverage metrics are above 100%.
 ## Version Control 4
- > 40 commits with standardized naming conventions  
+ > 50 commits with standardized naming conventions  
    
- > 4 pull requests with details regarding checkpoints reached with each merge
+ > 5 pull requests with details regarding checkpoints reached with each merge
