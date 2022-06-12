@@ -1,6 +1,4 @@
 module Cryptable
-    @@cryption = 'input'
-
     def offsets
         (@date.to_i ** 2).digits.reverse.last(4)
     end
@@ -41,17 +39,17 @@ module Cryptable
         output = []
         input_chunks.each do |chunk|
           chunk.each do |letter|
-            if letter == Enigma::SPECIAL_CHARS
-                next letter
+            if !Enigma::ALPHABET.include?(letter) 
+                output.push(letter) 
+            elsif how == 'encrypt'
+                output.push(@shift_array.first.key(letter))
+            else how == 'decrypt'
+                output.push(@shift_array.first.values_at(letter))
             end
-            @@cryption = letter
-            how == 'encrypt' ? output.push(@shift_array.first.key(@@cryption)) : next
-            how == 'decrypt' ? output.push(@shift_array.first.values_at(@@cryption)) : next
             @shift_array.rotate!
           end
         end
         @message = output.join('')
-        require 'pry'; binding.pry
     end    
 
     def crypt_message(input, how)
