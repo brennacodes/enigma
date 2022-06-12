@@ -4,8 +4,8 @@ The Enigma Cipher is an encryption algorithm that was used during World War II, 
 The version here was created in Ruby for Turing School's back-end engineering Module 1 final project. 
 
 ### Some notes...
-- the program accepts text for encryption and decryption that is provided within a text file via the command line 
-- decryption is done automatically using the previous encryption key if a key and date argument ar not provided
+- the program is run via the command line and accepts text for encryption and decryption that is provided within a text file *(see instructions below)* 
+- decryption is done automatically using the previous encryption key if a key and date argument are not provided
 - special characters are accepted but are not encrypted using the cipher
 
 # To Encrypt a message:  
@@ -32,7 +32,7 @@ The version here was created in Ruby for Turing School's back-end engineering Mo
 
     `ruby ./lib/decrypt.rb encrypt.txt decrypted.txt`  
       
-> If you want to use specific decryption key and date, type the at the end of the command above (the format should be similar to the encryption command with key and date arguments)  
+> If you want to use a specific decryption key and date, type the at the end of the command above (the format should be similar to the encryption command with key and date arguments)  
     
 > The encrypted or decrypted message can be found in the corresponding text file  
   
