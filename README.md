@@ -7,6 +7,7 @@ The version here was created in Ruby for Turing School's back-end engineering Mo
 - the program is run via the command line and accepts text for encryption and decryption that is provided within a text file *(see instructions below)* 
 - decryption is done automatically using the previous encryption key if a key and date argument are not provided
 - special characters are accepted but are not encrypted using the cipher
+- the cipher accepts upper and lowercase letters, however all text is output in lowercase
 
 # To Encrypt a message:  
 > Download or clone this repo  
