@@ -32,5 +32,23 @@ class Enigma
             file.write(encryption)
         end
         output_message
+        trace = TracePoint.trace(:call) do |tp| p [tp.lineno, tp.defined_class, tp.method_id, tp.event]
+        end
     end
+
+    def decrypt(message, date = GET_DATE)
+        @date = date
+        crypt_message(@message, 'decrypt')
+    end
+
+    def decrypt_output
+        decryption = {decryption: @message, key: @key, date: @date}
+        File.open(@output_to_file, "w") do |file|
+            file.write(decryption)
+        end
+        output_message
+        trace = TracePoint.trace(:call) do |tp| p [tp.lineno, tp.defined_class, tp.method_id, tp.event]
+        end
+    end
+
 end
