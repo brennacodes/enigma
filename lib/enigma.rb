@@ -18,6 +18,7 @@ class Enigma
         @date = date
         @message = message
         @output_to_file = output_to_file
+        @crypt_output = []
         @shift_array = []
     end
 

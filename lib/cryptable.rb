@@ -17,7 +17,6 @@ module Cryptable
     
     def get_shift(index)
         @shift_array.push(shifter[index] + offsets[index])
-
     end
     
     def shift_hash(shift)
@@ -29,21 +28,24 @@ module Cryptable
         @shift_array.map! {|shift| shift_hash(shift)}
     end
 
-    def cryptionize(input_chunks, how)
-        output = []
-        input_chunks.each do |chunk|
-          chunk.each do |letter|
-            if !Enigma::ALPHABET.include?(letter) 
-                output.push(letter) 
-            elsif how == 'encrypt'
-                output.push(@shift_array.first.values_at(letter))
-            else how == 'decrypt'
-                output.push(@shift_array.first.key(letter))
-            end
+    def is_a_special_character?(sym)
+        !Enigma::ALPHABET.include?(sym)
+    end
+
+    def process_chunk(chunk, how)
+        chunk.each do |letter|
+            @crypt_output << (letter) if is_a_special_character?(letter) == true
+            @crypt_output.push(@shift_array.first.values_at(letter)) if how == 'encrypt'
+            @crypt_output.push(@shift_array.first.key(letter)) if how == 'decrypt'
             @shift_array.rotate!
-          end
         end
-        @message = output.join('')
+    end
+
+    def cryptionize(input_chunks, how)
+        input_chunks.each do |chunk|
+            process_chunk(chunk, how)
+        end
+        @message = @crypt_output.join('')
     end    
 
     def crypt_message(input, how)
