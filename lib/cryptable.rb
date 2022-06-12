@@ -8,21 +8,14 @@ module Cryptable
     end
 
     def shifter
-        key_array = @key.chars.map! {|value| [value, @key[@key.index(value) + 1]]}
-        clean_array = key_array.take_while {|idx| key_array.index(idx) < 4}
-        clean_array.map! {|pair| pair.join('').to_i}
-    end
-    
-    def get_key(index)
-        shifter[index]
-    end
-    
-    def get_offset(index)
-        offsets[index].to_i
+        key.split('').each_cons(2) do |num_1, num_2|
+            require 'pry'; binding.pry
+            (num_1 + num_2).to_i
+        end
     end
     
     def get_shift(index)
-        get_key(index) + get_offset(index)
+        shifter[index] + offsets[index].to_i
     end
     
     def shift_hash(index)
@@ -57,9 +50,5 @@ module Cryptable
         chunks = input_array.each_slice(4)
         letter_indices
         cryptionize(chunks, how)
-    end
-
-    def output_message
-        puts "Created #{@output_to_file} with the key #{@key} and date #{@date}"
     end
 end

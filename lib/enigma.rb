@@ -23,23 +23,11 @@ class Enigma
 
     def encrypt(message)
         crypt_message(message, 'encrypt')
-        encrypt_output
-    end
-
-    def encrypt_output
         {encryption: @message, key: @key, date: @date}
     end
 
-    def decrypt(message, date = GET_DATE)
-        @date = date
+    def decrypt(message)
         crypt_message(@message, 'decrypt')
+        {decryption: @message, key: @key, date: @date}
     end
-
-    def decrypt_output
-        decryption = {decryption: @message, key: @key, date: @date}
-        File.open(@output_to_file, "w") do |file|
-            file.write(decryption)
-        end
-    end
-
 end
