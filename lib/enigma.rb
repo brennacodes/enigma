@@ -30,10 +30,9 @@ class Enigma
         encryption = {encryption: @message, key: @key, date: @date}
         File.open(@output_to_file, "w") do |file|
             file.write(encryption)
+            file.close
         end
         output_message
-        trace = TracePoint.trace(:call) do |tp| p [tp.lineno, tp.defined_class, tp.method_id, tp.event]
-        end
     end
 
     def decrypt(message, date = GET_DATE)

@@ -1,1 +1,1 @@
-{:encryption=>"?!?!enqn?!?!\nbxiijym??", :key=>"91302", :date=>"061122"}
+{:encryption=>"?!?!hnni?!?!\nbudljvh??", :key=>"34061", :date=>"061122"}
