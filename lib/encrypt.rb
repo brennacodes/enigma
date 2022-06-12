@@ -1,7 +1,7 @@
 require_relative 'helper'
 
 enigma = Enigma.new
-File.open(ARGV[0], 'r') { |f| enigma.message = f.read.downcase }
+File.open('./text/' + ARGV[0], 'r') { |f| enigma.message = f.read.downcase }
 enigma.output_to_file = ARGV[1]
 enigma.key = ARGV[2] if ARGV[2] != nil
 enigma.date = ARGV[3] if ARGV[3] != nil
