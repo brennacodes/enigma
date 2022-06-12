@@ -55,6 +55,6 @@ The version here was created in Ruby for Turing School's back-end engineering Mo
 ## Test Driven Development: 3
 > Tests follow interaction pattern and most tests were written before methods. Methods were written and refined utilizing pry, and test coverage metrics are above 100%.
 ## Version Control: 4
- > >50 commits with standardized naming conventions  
+ > over 50 commits with standardized naming conventions  
    
- > 9 pull requests with details regarding checkpoints reached with each merge
+ > 13 pull requests with descriptions regarding updates or checkpoints reached with each merge
