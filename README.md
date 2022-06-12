@@ -55,6 +55,6 @@ The version here was created in Ruby for Turing School's back-end engineering Mo
 ## Test Driven Development: 3.5
 > Tests follow interaction pattern and most tests were written before methods, and all methods were written and refined using pry. Stubs were used to help test methods that use randomness. Test coverage metrics are at 100%.
 ## Version Control: 4
- > over 50 commits with standardized naming conventions  
+ > over 60 commits with standardized naming conventions  
    
  > 13 pull requests with descriptions regarding updates or checkpoints reached with each merge
