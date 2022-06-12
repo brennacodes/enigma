@@ -10,3 +10,4 @@ File.open(ARGV[0], 'r') do |file|
     enigma.encrypt_output
     file.close
 end
+exit
