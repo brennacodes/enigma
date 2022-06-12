@@ -39,7 +39,7 @@ The version here was created in Ruby for Turing School's back-end engineering Mo
       
 > If you want to use a specific decryption key and date, type them at the end of the command above *(the format should be similar to the encryption command with key and date arguments)*  
     
-> The encrypted or decrypted message can be found in the corresponding text file  
+> The encrypted or decrypted message can be found in the corresponding text file inside of the text folder  
   
 > In additon to your encrypted or decrypted message, your **key** and **date** values are returned both in your terminal, as well as in corresponding text files inside of the `text` file folder
    
