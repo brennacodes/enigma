@@ -40,9 +40,6 @@ class Enigma
         File.open(@output_to_file, "w") do |file|
             file.write(decryption)
         end
-        output_message
-        trace = TracePoint.trace(:call) do |tp| p [tp.lineno, tp.defined_class, tp.method_id, tp.event]
-        end
     end
 
 end

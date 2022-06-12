@@ -44,7 +44,7 @@ The version here was created in Ruby for Turing School's back-end engineering Mo
 ## Functionality: 3
 > Encrypt and Decrypt methods are complete, and the encrypt/decrypt Command Line Interfaces are successfully implemented.
 ## Object Oriented Programming: 4
-> A `cryptable` module to house the #encrypt and #decrypt behavior has been implemented. Specific `encrypt` and `decrypt` methods were left in the `Enigma` class to follow the interaction pattern provided, as well as to help the logic flow.
+> A `cryptable` module to house the `encrypt` and `decrypt` behavior has been implemented. Specific `encrypt` and `decrypt` methods were left in the `Enigma` class to follow the interaction pattern provided, as well as to help the logic flow.
 ## Ruby Conventions and Mechanics: 4
 > Code is neat, properly indented, and variable names are easy to understand. 100% of methods are under 10 lines of code, with 99% being under 7 lines. Enumerables used are best choice for each application.
 ## Test Driven Development: __
