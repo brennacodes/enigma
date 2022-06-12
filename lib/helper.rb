@@ -1,5 +1,5 @@
 require 'date'
 require_relative 'cryptable'
 require_relative 'enigma'
-require_relative 'encrypt'
+# require_relative 'encrypt'
 # require_relative 'decrypt'

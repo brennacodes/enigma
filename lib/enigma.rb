@@ -14,9 +14,9 @@ class Enigma
                     :output_to_file,
                     :shift_array
     
-    def initialize
-        @key = generate_key
-        @date = GET_DATE
+    def initialize(key = generate_key, date = GET_DATE, message = '', output_to_file = '')
+        @key = key
+        @date = date
         @message = message
         @output_to_file = output_to_file
         @shift_array = []
@@ -24,15 +24,11 @@ class Enigma
 
     def encrypt(message)
         crypt_message(message, 'encrypt')
+        encrypt_output
     end
 
     def encrypt_output
-        encryption = {encryption: @message, key: @key, date: @date}
-        File.open(@output_to_file, "w") do |file|
-            file.write(encryption)
-            file.close
-        end
-        output_message
+        Hash(encryption: @message, key: @key, date: @date)
     end
 
     def decrypt(message, date = GET_DATE)

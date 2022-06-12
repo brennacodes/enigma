@@ -2,23 +2,15 @@ require_relative 'helper'
 
 enigma = Enigma.new
 
-input_from_file = ARGV[0]
+File.open(ARGV[0], 'r') {|f| enigma.message = f.read }
+File.open('key.txt', 'r') {|f| enigma.key = f.read }
+File.open('date.txt', 'r') {|f| enigma.date = f.read }
+
+enigma.key = ARGV[2] if ARGV[2] != nil
+enigma.date = ARGV[3] if ARGV[3] != nil
 enigma.output_to_file = ARGV[1]
 
-
-File.open(input_from_file, 'r') do |file|
-    contents = file.read
-    enigma.message = contents[:encryption]
-    @key = ARGV[2] || enigma.key = contents[:key]
-    @date = ARGV[3] || enigma.date = contents[:date]
-end
-
-# File.open(input_from_file, 'r') do |file|
-#     enigma.message = file.read
-# end
-
 enigma.decrypt(enigma.message)
+File.open(ARGV[1], "w") {|file| file.write(enigma.message)}
 
-trace = TracePoint.trace(:call) do |tp| p [tp.lineno, tp.defined_class, tp.method_id, tp.event]
-end
-enigma.decrypt_output
+puts "Created #{enigma.output_to_file} with the key #{enigma.key} and date #{enigma.date}"
