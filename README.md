@@ -54,7 +54,7 @@ The version here was created in Ruby for Turing School's back-end engineering Mo
 > Code is neat, properly indented, and variable names are easy to understand. 100% of methods are under 10 lines of code, with 99% being under 7 lines. Enumerables used are best choice for each application.
 ## Test Driven Development: 3
 > Tests follow interaction pattern and most tests were written before methods. Methods were written and refined utilizing pry, and test coverage metrics are above 100%.
-## Version Control 4
- > 50 commits with standardized naming conventions  
+## Version Control: 4
+ > >50 commits with standardized naming conventions  
    
- > 5 pull requests with details regarding checkpoints reached with each merge
+ > 9 pull requests with details regarding checkpoints reached with each merge
