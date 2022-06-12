@@ -4,8 +4,6 @@ require './lib/cryptable'
 RSpec.describe 'Enigma' do
   let!(:enigma) {Enigma.new("hello world")}
   let!(:enigma_2) {Enigma.new("hello! world?")}
-  let!(:input_file) {'encrypted.txt'}
-  let!(:output_file) {'decrypted.txt'}
 
   it "is an instance of" do
     expect(enigma).to be_instance_of Enigma

@@ -146,5 +146,4 @@ RSpec.describe 'Cryptable' do
              "z"=>"s"
         }])
     end
-
 end
