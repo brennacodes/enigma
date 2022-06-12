@@ -6,7 +6,6 @@ class Enigma
 
     GET_DATE = Date.today.strftime('%m%d%y')
     ALPHABET = ('a'..'z').to_a << " "
-    SPECIAL_CHARS = !ALPHABET.any?
     
     attr_accessor   :key,
                     :date,
@@ -14,7 +13,7 @@ class Enigma
                     :output_to_file,
                     :shift_array
     
-    def initialize(key = generate_key, date = GET_DATE, message = '', output_to_file = '')
+    def initialize(message = '', key = generate_key, date = GET_DATE, output_to_file = '')
         @key = key
         @date = date
         @message = message
@@ -28,7 +27,7 @@ class Enigma
     end
 
     def encrypt_output
-        Hash(encryption: @message, key: @key, date: @date)
+        {encryption: @message, key: @key, date: @date}
     end
 
     def decrypt(message, date = GET_DATE)

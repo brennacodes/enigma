@@ -3,6 +3,7 @@ require_relative 'spec_helper'
 RSpec.describe 'Cryptable' do
     let!(:enigma) {Enigma.new("hello world", "12345", "040895")}
     let!(:enigma_2) {Enigma.new("hello! world!")}
+    let!(:date) {"061022"}
 
     it 'exists' do
         expect(enigma).to be_instance_of Enigma
@@ -12,15 +13,7 @@ RSpec.describe 'Cryptable' do
         expect(enigma_2).to be_instance_of Enigma
     end
 
-    it 'can return todays date' do
-        expect(Cryptable::DATE).to eq Date.today.strftime("%m%d%y")
-    end
-
-    it 'can return an alphabet array' do
-        expect(Cryptable::ALPHABET).to eq(["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "])
-    end
-
-    it 'can get offsets from date' do
+    xit 'can get offsets from date' do
         expect(enigma.offsets).to eq([8, 8, 8, 4])
     end
 
