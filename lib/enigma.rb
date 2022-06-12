@@ -27,7 +27,7 @@ class Enigma
     end
 
     def decrypt(message)
-        crypt_message(@message, 'decrypt')
+        crypt_message(message, 'decrypt')
         {decryption: @message, key: @key, date: @date}
     end
 end

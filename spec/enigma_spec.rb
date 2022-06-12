@@ -2,17 +2,18 @@ require './lib/helper'
 require './lib/cryptable'
 
 RSpec.describe 'Enigma' do
-  let!(:enigma) {Enigma.new("hello world", "02715", '040895')}
-  let!(:enigma_2) {Enigma.new("hello! world?", "02715", "040895")}
+  let!(:enigma) {Enigma.new("hello world")}
+  let!(:enigma_2) {Enigma.new("hello! world?")}
   let!(:input_file) {'encrypted.txt'}
   let!(:output_file) {'decrypted.txt'}
 
   it "is an instance of" do
     expect(enigma).to be_instance_of Enigma
   end
-
+  
   it 'can return todays date' do
     expect(Enigma::GET_DATE).to eq Date.today.strftime("%m%d%y")
+    enigma.date = "040895"
     expect(enigma.date).to eq("040895")
   end
 
@@ -26,62 +27,66 @@ RSpec.describe 'Enigma' do
   end
 
   it "can encrypt a message" do
+    enigma.key = "02715"
+    enigma.date = "040895"
     expect(enigma.encrypt(enigma.message)).to eq({
-      :encryption => "eetsl dvoll",
+      :encryption => "keder ohulw",
       :key => "02715",
       :date => "040895"
-    })
-    expect(enigma_2.encrypt(enigma.message)).to eq({
-      :encryption => "keder! ohulw?",
+      })
+    enigma_2.key = "02715"
+    enigma_2.date = "040895"
+    expect(enigma_2.encrypt(enigma_2.message)).to eq({
+      :encryption => "keder!sprrdx?",
       :key => "02715",
-      :date => "061122"
+      :date => "040895"
     })
   end
       
-  xit "can decrypt a message" do
-    enigma.encrypt(message, "02715", '040895')
-    expect(enigma.decrypt(ciphertext, "02715", '040895')).to eq({
+  it "can decrypt a message" do
+    enigma.key = "02715"
+    enigma.date = "040895"
+    expect(enigma.decrypt("keder ohulw")).to eq({
       :decryption => "hello world",
       :key => "02715",
       :date => "040895"
       })
-    expect(enigma_2.decrypt).to eq({
-      :encryption => "hello! world?",
+    enigma_2.key = "02715"
+    enigma_2.date = "040895"
+    expect(enigma_2.decrypt("keder!sprrdx?")).to eq({
+      :decryption => "hello! world?",
       :key => "02715",
-      :date => "061122"
+      :date => "040895"
+    })
+  end
+
+  it "can encrypt a message when date not given" do
+    enigma.key = "02715"
+    expect(enigma.encrypt("hello world")).to eq({
+      :encryption => "mgjdtbugwnb",
+      :key => "02715",
+      :date => "061222"
       })
   end
-
-  xit "can encrypt a message when date not given" do
-    expect(enigma.encrypt("hello world", "02715")).to eq({
-      :encryption => "pmjdwhugztb",
-      :key => "02715",
-      :date => "061122"
-    })
-  end
-
-  xit "can decrypt a message when date is not given" do
-    evaluate = enigma.encrypt("hello world", "02715")
-    ciphertext = evaluate[:encryption]
-    expect(enigma.decrypt(ciphertext, "02715")).to eq({
+    
+  it "can decrypt a message when date is not given" do    
+    enigma_2.key = "02715"
+    expect(enigma_2.decrypt("mgjdtbugwnb")).to eq({
       :decryption => "hello world",
       :key => "02715",
-      :date => "060622"
-    })
-  end
-
-  xit "can crack an encrypted message" do
-    evaluate = Enigma.new("hello world end", "08304", "291018").encrypt
-    to_crack = evaluate[:encryption]
-    expect(Enigma.new(to_crack).crack(message)).to eq({
-      :decryption => "hello world end",
-      :key => "02715",
-      :date => "060622"
+      :date => "061222"
     })
   end
 end
-
-
+  # xit "can crack an encrypted message" do
+  #   evaluate = Enigma.new("hello world end", "08304", "291018").encrypt
+  #   to_crack = evaluate[:encryption]
+  #   expect(Enigma.new(to_crack).crack(message)).to eq({
+  #     :decryption => "hello world end",
+  #     :key => "02715",
+  #     :date => "060622"
+  #   })
+  # end
 
 # STUB:
 # allow(enigma).to receive(:).and_return()
