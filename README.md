@@ -36,7 +36,7 @@ The version here was created in Ruby for Turing School's back-end engineering Mo
         
 > To decrypt the message, type the command below into  your terminal:
 
-    `ruby ./lib/decrypt.rb encrypt.txt decrypted.txt`  
+    `ruby ./lib/decrypt.rb encrypted.txt decrypted.txt`  
       
 > If you want to use a specific decryption key and date, type them at the end of the command above *(the format should be similar to the encryption command with key and date arguments)*  
     
@@ -53,7 +53,7 @@ The version here was created in Ruby for Turing School's back-end engineering Mo
 > A `cryptable` module was implemented to house the `encrypt` and `decrypt` behavior. Inheritence was not used as it didn't make sense based on the interacion pattern for this program. Specific `encrypt` and `decrypt` methods were left in the `Enigma` class to follow the interaction pattern provided, as well as to help the logic flow. Code is DRY and follows SRP.
 ## Ruby Conventions and Mechanics: 4
 > Code is neat, properly indented, and variable names make sense and are easy to understand. 100% of methods are under 7 lines of code. Enumerables used are best choice for each application.
-## Test Driven Development: 3.5
+## Test Driven Development: 4
 > Tests follow interaction pattern and most tests were written before methods, and all methods were written and refined using pry. Stubs were used to help test methods that use randomness. Test coverage metrics are at 100%.
 ## Version Control: 4
  > over 60 commits with standardized naming conventions  
