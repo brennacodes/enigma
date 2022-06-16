@@ -2,8 +2,6 @@
 The Enigma Cipher is an encryption algorithm that was used during the early stages of World War II, and cracked by Polish mathematicians led by Marian Rejewski. Based on their analysis of the Enigma Cipher, they developed a machine called the Bomba to help them decrypt intecepted messages. However, changes to the cipher in the late 1940s rendered it useless. Once these changes took place, Alan Turing and others worked to create a similar machine called the Bombe which helped the Allies win the war.  
 You can learn more about Enigma machine at [the link here](https://en.wikipedia.org/wiki/Enigma_machine#:~:text=The%20Enigma%20machine%20is%20a,branches%20of%20the%20German%20military).
 
-The version here was created in Ruby for Turing School's back-end engineering Module 1 final project. 
-
 ### Some notes...
 - the program is run via the command line and accepts text for encryption and decryption that is provided within a text file *(see instructions below)* 
 - decryption is done automatically using the previous encryption key if a key and date argument are not provided
